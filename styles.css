@@ -1,0 +1,433 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'SamsungSharpSans', sans-serif;
+  background-image: url('src/BG.png');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #000;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  background: transparent;
+}
+
+.header_animation {
+  padding: 20px;
+}
+
+.read_more {
+  color: #979797;
+  text-decoration: none;
+}
+
+.left-side {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: -100%;
+  top: 0;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: rgb(255, 255, 255);
+  z-index: 60;
+  transition: left 1s ease-in-out;
+  box-sizing: border-box;
+}
+
+.left-side * {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.left-side.animate-side {
+  left: 0%;
+}
+.left-side.animate-side.visible * {
+  opacity: 1;
+}
+
+.text h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.text p {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 20px;
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.indicators button {
+  background: transparent;
+  color: black;
+  border: none;
+  font-size: 2em;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.indicators button:hover {
+  opacity: 0.7;
+}
+
+.indicators button.prev::before {
+  content: '\2039';
+}
+
+.indicators button.next::before {
+  content: '\203A';
+}
+
+.indicators .current-slide {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.shop-now {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid #000;
+  border-radius: 30px;
+  max-width: max-content;
+  color: #000;
+  padding: 20px 20px;
+  margin: 0 0 10px 40px;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: width 1s ease, margin-left 1s ease;
+}
+
+.carousel.animate-carousel_side {
+  margin-left: 40%;
+  width: 60%;
+}
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s out-ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 102%;
+  height: 102%;
+  object-fit: cover;
+}
+
+.kichn_logo img {
+  max-height: 28px;
+}
+
+.logo {
+  margin: 20px;
+  max-width: 150px;
+  max-height: 40px;
+  position: absolute;
+  left: -300px;
+  top: 50px;
+  transition: left 1s ease-in-out, top 0.5s ease-in-out;
+  z-index: 99;
+}
+
+.saveMoney {
+  position: absolute;
+  color: #fff;
+  padding-left: 20px;
+  left: -300px;
+  bottom: 40px;
+  z-index: 48;
+  transition: left 1s ease-in-out, top 0.5s ease-in-out;
+}
+
+.logo img {
+  max-height: 30px;
+}
+
+.header_text {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: block;
+  transition: left 1s ease-in-out, top 1.5s ease-in-out;
+}
+
+.text_header {
+  position: absolute;
+  left: -500px;
+  top: 0px;
+  width: 100%;
+  font-size: 28px;
+  font-family: 'SamsungSharpSans', sans-serif;
+  font-weight: bold;
+  line-height: 1.275;
+  margin: 0 0 10px;
+  color: rgb(0, 0, 0);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: left 1s ease-in-out, top 0.5s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0;
+  z-index: 99;
+}
+
+.text_header:nth-child(1) {
+  padding-top: 30px;
+}
+
+.text_header:nth-child(2) {
+  padding-top: 65px;
+}
+
+.text_header:nth-child(3) {
+  padding-top: 100px;
+}
+
+.text_header.animate-text-left {
+  left: 0px;
+  opacity: 1;
+}
+
+.text_header.animate-text-bot {
+  top: 20px;
+}
+
+.animate-logo-up-slide3 {
+  top: -10px !important;
+}
+
+.animate-text-bot-slide3 {
+  top: 10px !important;
+}
+
+.animate-logo-left {
+  left: 0px;
+}
+
+.animate-logo-up {
+  top: 0;
+}
+
+.bottom_logo {
+  position: absolute;
+  font-size: 10px;
+  z-index: 1;
+  left: 30px;
+  bottom: 10px;
+  color: #fff;
+}
+
+.bottom_logo_animated {
+  position: absolute;
+  font-size: 13px;
+  z-index: 49;
+  left: 30px;
+  bottom: 10px;
+  color: #000000;
+}
+
+.top_logo {
+  position: absolute;
+  font-size: 30px;
+  font-weight: bold;
+  z-index: 49;
+  right: 30px;
+  top: 30px;
+  color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    max-height: 20px;
+  }
+  .text_header {
+    font-size: 20px;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .left-side {
+    padding: 20px;
+  }
+
+  .header_animation {
+    padding: 20px;
+  }
+
+  .text_header {
+    font-size: 24px;
+  }
+
+  .indicators button {
+    font-size: 1.5em;
+  }
+
+  .indicators .current-slide {
+    font-size: 1em;
+  }
+
+  .shop-now {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kichn_logo img {
+    max-height: 13px;
+  }
+  .logo {
+    max-height: 15px;
+  }
+  .text_header {
+    font-size: 15px;
+    padding: 5px;
+    margin: 0px;
+  }
+
+  .shop-now {
+    font-size: 10px;
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin: 0;
+  }
+  .buttons {
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .text_header:nth-child(1) {
+    padding-top: 15px;
+  }
+  .text_header:nth-child(2) {
+    padding-top: 30px;
+  }
+  .text_header:nth-child(3) {
+    padding-top: 45px;
+  }
+  .bottom_logo_animated {
+    font-size: 10px;
+  }
+
+  .left-side {
+    padding: 15px;
+  }
+  #slide-text {
+    font-size: 12px;
+  }
+  .bottom_logo {
+    display: none;
+  }
+
+  .header_animation {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    width: 100%;
+    border: none;
+    height: 70vh;
+    max-width: 1200px;
+    aspect-ratio: none;
+    overflow: hidden;
+    position: relative;
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .left-side {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: calc(50% - 20px);
+    background: none;
+  }
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .text_header {
+    font-size: 16px;
+  }
+  .slides {
+    height: 300px;
+  }
+
+  .shop-now {
+    padding: 10px;
+  }
+  .carousel.animate-carousel_side {
+    margin-left: 0%;
+    width: 100%;
+  }
+  .indicators button {
+    font-size: 1em;
+  }
+  .top_logo {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    z-index: 49;
+    right: 10px;
+    color: #2b2b2b;
+  }
+  .indicators .current-slide {
+    font-size: 0.8em;
+  }
+}
